@@ -26,12 +26,12 @@ public class ServiceService {
 
     //CREAR SERVICIO
     public ServiceDto createService (ServiceDto serviceDto){
-        Service serviceValidated = validateServiceById(serviceDto);
+        Service serviceValidated = validateServiceByName(serviceDto);
         if (serviceValidated == null){
              Service serviceSaved = repository.save(ServiceMapper.dtoToService(serviceDto));
             return ServiceMapper.serviceToDto(serviceSaved);
         } else{
-            throw new ServiceNotExistsException("Tipo de servicio con ID: " + serviceDto.getId() + " ya existe");
+            throw new ServiceNotExistsException("Tipo de servicio con nombre: " + serviceDto.getName() + " no puede ser creado");
         }
     }
 
@@ -79,7 +79,7 @@ public class ServiceService {
         return null;
     }
 
-    public Service validateServiceById(ServiceDto dto){
-        return repository.findById(dto.getId()).get();
+    public Service validateServiceByName(ServiceDto dto){
+        return repository.findByName(dto.getName());
     }
 }

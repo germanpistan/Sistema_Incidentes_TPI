@@ -23,12 +23,12 @@ public class TechnicianService {
 
     //CREAR TECNICO
     public TechnicianDto createTechnician (TechnicianDto technicianDto){
-        Technician technicianValidated = validateTechnicianById(technicianDto);
+        Technician technicianValidated = validateTechnicianByName(technicianDto);
         if (technicianValidated == null){
             Technician technicianSaved = repository.save(TechnicianMapper.dtoToTechnician(technicianDto));
             return TechnicianMapper.technicianToDto(technicianSaved);
         } else{
-            throw new TechnicianNotExistsException("Cliente con CUIT: " + technicianDto.getId() + " ya existe");
+            throw new TechnicianNotExistsException("Cliente con nombre: " + technicianDto.getName() + " no puede ser creado");
         }
     }
 
@@ -89,7 +89,7 @@ public class TechnicianService {
         return null;
     }
 
-    public Technician validateTechnicianById(TechnicianDto dto){
-        return repository.findById(dto.getId()).get();
+    public Technician validateTechnicianByName(TechnicianDto dto){
+        return repository.findByName(dto.getName());
     }
 }

@@ -23,12 +23,12 @@ public class SpecialityService {
 
     //CREAR ESPECIALIDAD
     public SpecialityDto createSpeciality (SpecialityDto specialityDto){
-        Speciality specialityValidated = validateSpecialityById(specialityDto);
+        Speciality specialityValidated = validateSpecialityByDescription(specialityDto);
         if (specialityValidated == null){
             Speciality specialitySaved = repository.save(SpecialityMapper.dtoToSpeciality(specialityDto));
             return SpecialityMapper.specialityToDto(specialitySaved);
         } else{
-            throw new SpecialityNotExistsException("Especialidad con ID: " + specialityDto.getId() + " ya existe");
+            throw new SpecialityNotExistsException("Especialidad con descripcion: " + specialityDto.getDescription() + " no puede ser creada");
         }
     }
 
@@ -76,8 +76,8 @@ public class SpecialityService {
         return null;
     }
 
-    public Speciality validateSpecialityById(SpecialityDto dto){
-        return repository.findById(dto.getId()).get();
+    public Speciality validateSpecialityByDescription(SpecialityDto dto){
+        return repository.findByDescription(dto.getDescription());
     }
 
 }

@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProblemTypeRepository extends JpaRepository<ProblemType, Long> {
+    ProblemType findByEstimatedTime (Integer EstimatedTime);
 }

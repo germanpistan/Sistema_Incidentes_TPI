@@ -22,12 +22,12 @@ public class ProblemTypeService {
 
     //CREAR TIPO DE PROBLEMA
     public ProblemTypeDto createProblemType (ProblemTypeDto problemTypeDto){
-        ProblemType problemTypeValidated = validateProblemTypeById(problemTypeDto);
+        ProblemType problemTypeValidated = validateProblemTypeByEstimatedTime(problemTypeDto);
         if (problemTypeValidated == null){
             ProblemType problemTypeSaved = repository.save(ProblemTypeMapper.dtoToProblemType(problemTypeDto));
             return ProblemTypeMapper.problemTypeToDto(problemTypeSaved);
         } else{
-            throw new ProblemTypeNotExistsException("Tipo de problema con ID: " + problemTypeDto.getId() + " ya existe");
+            throw new ProblemTypeNotExistsException("Tipo de problema con tiempo estimado: " + problemTypeDto.getEstimatedTime() + " no puede ser creado");
         }
     }
 
@@ -79,7 +79,7 @@ public class ProblemTypeService {
         return null;
     }
 
-    public ProblemType validateProblemTypeById(ProblemTypeDto dto){
-        return repository.findById(dto.getId()).get();
+    public ProblemType validateProblemTypeByEstimatedTime(ProblemTypeDto dto){
+        return repository.findByEstimatedTime(dto.getEstimatedTime());
     }
 }

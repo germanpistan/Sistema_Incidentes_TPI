@@ -15,7 +15,7 @@ public class Technician {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nombre", length = 45)
+    @Column(name = "nombre", nullable = false, length = 45)
     private String name;
 
     @Column (name = "apellido", length = 45)

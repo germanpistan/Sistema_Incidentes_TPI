@@ -23,12 +23,12 @@ public class IncidentService {
 
     //CREAR INCIDENTE
     public IncidentDto createIncident (IncidentDto incidentDto){
-        Incident incidentValidated = validateIncidentById(incidentDto);
+        Incident incidentValidated = validateIncidentByTotalTime(incidentDto);
         if (incidentValidated == null){
             Incident incidentSaved = repository.save(IncidentMapper.dtoToIncident(incidentDto));
             return IncidentMapper.incidentToDto(incidentSaved);
         } else{
-            throw new IncidentNotExistsException("Incidente con el ID: " + incidentDto.getId() + " ya existe");
+            throw new IncidentNotExistsException("Incidente con tiempo total: " + incidentDto.getTotalTime() + " no puede ser creado");
         }
     }
 
@@ -91,8 +91,8 @@ public class IncidentService {
         return null;
     }
 
-    public Incident validateIncidentById(IncidentDto dto){
-        return repository.findById(dto.getId()).get();
+    public Incident validateIncidentByTotalTime(IncidentDto dto){
+        return repository.findByTotalTime(dto.getTotalTime());
     }
 
 }

@@ -18,6 +18,6 @@ public class ProblemType {
     @Column (name = "descripcion", nullable = false, length = 255)
     private String description;
 
-    @Column (name = "tiempo_estimado")
+    @Column (name = "tiempo_estimado", nullable = false)
     private Integer estimatedTime;
 }

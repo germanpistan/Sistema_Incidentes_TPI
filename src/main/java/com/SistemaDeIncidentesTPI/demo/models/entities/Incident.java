@@ -16,7 +16,7 @@ public class Incident {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column (name = "descripcion", nullable = false, length =255)
+    @Column (name = "descripcion", length =255)
     private String description;
 
     @Column (name = "fecha_ingreso")
@@ -28,7 +28,7 @@ public class Incident {
     @Column (name = "fecha_finalizacion")
     private Date finishDate;
 
-    @Column (name = "tiempo_total")
+    @Column (name = "tiempo_total", nullable = false)
     private Integer totalTime;
 
     @Column (name = "observaciones")
