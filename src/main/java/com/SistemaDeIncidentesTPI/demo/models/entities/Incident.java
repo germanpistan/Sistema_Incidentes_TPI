@@ -19,7 +19,7 @@ public class Incident {
     @Column (name = "descripcion", nullable = false, length =255)
     private String description;
 
-    @Column (name = "fecha_ingreso", nullable =false)
+    @Column (name = "fecha_ingreso")
     private Date admissionDate;
 
     @Column (name = "fecha_inicio")
