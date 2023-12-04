@@ -1,7 +1,7 @@
 # Sistema_Incidentes_TPI
 
-#Para ejecutar el proyecto debe tener una base de datos creada llamada "incidentes_db"
-#Luego debe ejecutar el Script que figura en la carpeta BD
+# Para ejecutar el proyecto debe tener una base de datos creada llamada "incidentes_db"
+# Luego debe ejecutar el Script que figura en la carpeta BD
 
 
 Contexto general
