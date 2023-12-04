@@ -3,6 +3,8 @@ package com.SistemaDeIncidentesTPI.demo.models.dtos;
 
 import lombok.*;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @NoArgsConstructor

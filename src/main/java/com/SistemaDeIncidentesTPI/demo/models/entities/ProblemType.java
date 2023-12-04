@@ -3,6 +3,9 @@ package com.SistemaDeIncidentesTPI.demo.models.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor

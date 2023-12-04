@@ -29,6 +29,8 @@ public class Technician {
     @Column (name = "telefono", length = 45)
     private String phone;
 
+    private String preferred_contact_method;
+
     @OneToMany(mappedBy = "technician", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Speciality> specialities;
 

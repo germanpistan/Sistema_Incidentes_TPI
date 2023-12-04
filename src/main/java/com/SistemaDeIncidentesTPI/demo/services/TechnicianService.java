@@ -91,41 +91,7 @@ public class TechnicianService {
         }
         return null;
     }
-    /*
-    //TECNICO CON MAS INCIDENTES
-    public TechnicianDto getTecnicoConMasIncidentes (){
-        return TechnicianMapper.technicianToDto(Objects.requireNonNull(repository.findAll().stream()
-                .max(Comparator.comparingInt(technician -> (int) technician.getIncidents().size()))
-                .orElse(null)));
 
-    }
-
-
-    //TECNICO CON MAS INCIDENTES RESUELTOS
-    public TechnicianDto getTecnicoMasIncidentesResueltos(){
-        return TechnicianMapper.technicianToDto(Objects.requireNonNull(repository.findAll().stream()
-                .max(Comparator.comparingInt(technician -> cantIncidentesResueltosTecnico(technician)))
-                .orElse(null)));
-    };
-
-    public int cantIncidentesResueltosTecnico(Technician technician){
-        return (int) technician.getIncidents().stream().filter(incident->incident.getResolved()).count();
-    }
-
-    public TechnicianDto tecnicoMasIncidentesResueltos(int ndays){
-        return TechnicianMapper.technicianToDto(Objects.requireNonNull(repository.findAll().stream()
-                .max(Comparator.comparingInt(technician -> cantIncidentesResueltosUltimosNdias(technician, ndays)))
-                .orElse(null)));
-    }
-
-    public int cantIncidentesResueltosUltimosNdias(Technician technician, int ndays){
-        Date today = new Date();
-        long limitDate= today.getDate() - (ndays*24*60*60*1000L);
-        return (int) technician.getIncidents().stream()
-                .filter(incidente->incidente.getFinishDate().getTime()>=limitDate)
-                .count();
-    }
-    */
 
 
 
