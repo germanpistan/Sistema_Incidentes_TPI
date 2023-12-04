@@ -3,6 +3,7 @@ package com.SistemaDeIncidentesTPI.demo.controllers;
 
 import com.SistemaDeIncidentesTPI.demo.models.dtos.TechnicianDto;
 
+import com.SistemaDeIncidentesTPI.demo.models.entities.Technician;
 import com.SistemaDeIncidentesTPI.demo.services.TechnicianService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -46,4 +47,6 @@ public class TechnicianController {
     public ResponseEntity<TechnicianDto> updateTechnician(@PathVariable Long id, @RequestBody TechnicianDto technician){
         return ResponseEntity.status(HttpStatus.OK).body(service.updateTechnician(id, technician));
     }
+
+
 }

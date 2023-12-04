@@ -3,6 +3,8 @@ package com.SistemaDeIncidentesTPI.demo.models.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,5 +28,13 @@ public class Technician {
 
     @Column (name = "telefono", length = 45)
     private String phone;
+
+    @OneToMany(mappedBy = "technician", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Speciality> specialities;
+
+    @OneToMany(mappedBy = "technician", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List <Incident> incidents;
+
+
 
 }

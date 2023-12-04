@@ -18,5 +18,8 @@ public class Service {
     @Column (name="nombre",nullable = false, length=255)
     private String name;
 
+    @ManyToOne
+    private Customer customer;
+
 
 }

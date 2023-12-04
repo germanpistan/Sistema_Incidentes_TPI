@@ -34,5 +34,21 @@ public class Incident {
     @Column (name = "observaciones")
     private String observations;
 
+    @Column (name = "resuelto")
+    private Boolean resolved;
+
+    @OneToOne
+    private Customer customer;
+
+    @OneToOne
+    private ProblemType problemType;
+
+    @OneToOne
+    private Service service;
+
+    @ManyToOne
+    private Technician technician;
+
+
 
 }

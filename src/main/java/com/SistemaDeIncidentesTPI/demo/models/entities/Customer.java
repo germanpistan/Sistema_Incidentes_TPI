@@ -3,6 +3,8 @@ package com.SistemaDeIncidentesTPI.demo.models.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,4 +30,9 @@ public class Customer {
 
     @Column (name = "CUIT", nullable = false, length = 20)
     private String cuit;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Service> services;
+
+
 }

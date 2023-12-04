@@ -18,4 +18,7 @@ public class Speciality {
     @Column(name="descripcion",nullable = false, length=255)
     private String description;
 
+    @ManyToOne
+    private Technician technician;
+
 }
