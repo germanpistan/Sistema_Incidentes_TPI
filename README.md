@@ -1,5 +1,9 @@
 # Sistema_Incidentes_TPI
 
+#Para ejecutar el proyecto debe tener una base de datos creada llamada "incidentes_db"
+#Luego debe ejecutar el Script que figura en la carpeta BD
+
+
 Contexto general
 Una importante empresa de soporte operativo solicita el diseño y desarrollo de un sistema
 que le permita la generación y seguimiento de los incidentes que se presentan.
