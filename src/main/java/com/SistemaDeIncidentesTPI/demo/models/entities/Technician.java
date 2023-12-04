@@ -38,5 +38,6 @@ public class Technician {
     private List <Incident> incidents;
 
 
-
+    public Technician(String nombre, String apellido, String dni, String email, String telefono) {
+    }
 }
